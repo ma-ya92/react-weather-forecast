@@ -48,10 +48,11 @@ export default function InfoBlock(props) {
               <li>
                 <strong> {temp} </strong>
                 <span className="units">
-                  <a href="#" className="active">
+                  <button href="#" className="link-button">
+                    {" "}
                     °C
-                  </a>
-                  |<a> °F</a>
+                  </button>
+                  |<button className="link-button"> °F</button>
                 </span>
               </li>
             </ul>

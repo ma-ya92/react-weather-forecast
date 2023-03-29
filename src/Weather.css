@@ -60,9 +60,15 @@ ul {
   font-size: 10px;
 }
 
-.active {
+.link-button {
   color: black;
-  cursor: default;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  text-decoration: underline;
+  display: inline;
+  margin: 0;
+  padding: 0;
 }
 
 .active:hover {
