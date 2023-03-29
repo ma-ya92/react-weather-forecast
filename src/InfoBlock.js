@@ -32,7 +32,7 @@ export default function InfoBlock(props) {
     if (props.city) {
       axios.get(apiUrl).then(showTemperature);
     }
-  }, [props.city]);
+  });
 
   return (
     <div className="Weather">
