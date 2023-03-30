@@ -2,18 +2,10 @@ import React, { useState } from "react";
 import "./Weather.css";
 import axios from "axios";
 import { useEffect } from "react";
+import FormattedDate from "./FormatedDate";
 
 export default function InfoBlock(props) {
   const [weatherData, setWeatherData] = useState({});
-
-  function showTemperature(response) {
-    setWeatherData({
-      temp: response.data.main.temp,
-      humidity: response.data.main.humidity,
-      icon: response.data.weather[0].icon,
-      wind: response.data.wind.speed,
-    });
-  }
 
   let apiKey = "5f472b7acba333cd8a035ea85a0d4d4c";
   let units = "metric";
@@ -25,6 +17,20 @@ export default function InfoBlock(props) {
     }
   });
 
+  function showTemperature(response) {
+    setWeatherData({
+      temp: Math.round(response.data.main.temp),
+      humidity: response.data.main.humidity,
+      icon: `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`,
+      wind: Math.round(response.data.wind.speed),
+      date: new Date(response.data.dt * 1000),
+    });
+  }
+
+  if (!weatherData.temp) {
+    return <div>Loading...</div>;
+  }
+
   return (
     <div className="Weather">
       <div>
@@ -35,7 +41,9 @@ export default function InfoBlock(props) {
               <li className="card-text" />
               {props.city}
               <li className="font-italic" />
-              PUT HERE A DATE!
+
+              <FormattedDate date={new Date()} />
+
               <li>
                 <strong> {weatherData.temp} </strong>
                 <span className="units">
