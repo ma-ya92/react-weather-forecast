@@ -5,7 +5,7 @@ import InfoBlock from "./InfoBlock";
 import SearchForm from "./SearchForm";
 
 export default function Parent() {
-  const [city, setCity] = useState("");
+  const [city, setCity] = useState("Lviv");
 
   function updateCity(city) {
     setCity(city);
