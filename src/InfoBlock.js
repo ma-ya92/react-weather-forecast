@@ -10,6 +10,7 @@ export default function InfoBlock(props) {
 
   function showTemperature(response) {
     console.log(response.data.main.temp);
+    // Cheсking the absense of endless cycle of requests sending
 
     setWeatherData({
       temp: Math.round(response.data.main.temp),
