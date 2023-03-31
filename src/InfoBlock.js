@@ -11,9 +11,9 @@ export default function InfoBlock(props) {
     console.log(response.data.main.temp);
 
     setWeatherData({
-      temp: response.data.main.temp,
+      temp: Math.round(response.data.main.temp),
       icon: response.data.weather[0].icon,
-      wind: response.data.wind.speed,
+      wind: Math.round(response.data.wind.speed),
       date: new Date(response.data.dt * 1000),
       humidity: response.data.main.humidity,
     });
@@ -63,7 +63,7 @@ export default function InfoBlock(props) {
               <li className="font-italic pt-2">
                 Humidity: {weatherData.humidity}%
               </li>
-              <li className="font-italic pb-2">Wind:{weatherData.wind} m/h</li>
+              <li className="font-italic pb-2">Wind: {weatherData.wind}m/h</li>
               <br />
               <li />
             </ul>
