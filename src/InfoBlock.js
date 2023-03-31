@@ -12,7 +12,7 @@ export default function InfoBlock(props) {
 
     setWeatherData({
       temp: Math.round(response.data.main.temp),
-      icon: response.data.weather[0].icon,
+      icon: `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`,
       wind: Math.round(response.data.wind.speed),
       date: new Date(response.data.dt * 1000),
       humidity: response.data.main.humidity,
@@ -32,7 +32,7 @@ export default function InfoBlock(props) {
   return (
     <div className="Weather">
       <div>
-        <div className="d-flex justify-content-center main_block">
+        <div className="d-flex main_block">
           <div className="col-4">
             <ul className="list-unstyled">
               <br />
@@ -54,8 +54,8 @@ export default function InfoBlock(props) {
               </li>
             </ul>
           </div>
-          <div className="col-4 mt-1" float-center>
-            <img src={weatherData.icon} alt="" width="100px" />
+          <div className="col-4 d-flex justify-content-center">
+            <img src={weatherData.icon} alt="" width="110px" />
           </div>
           <div className="col-4">
             <ul className="list-unstyled">
