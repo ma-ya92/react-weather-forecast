@@ -24,7 +24,7 @@ export default function SearchForm({ onChange }) {
           <form role="search" className="d-flex" onSubmit={updateCity}>
             <div className="p-2 m-2">
               <input
-                className="form-control me-2 p-2 font-weight-light"
+                className="form-control me-2 p-1.5 font-weight-light"
                 type="search"
                 placeholder="Type a city"
                 aria-label="search"

@@ -31,43 +31,35 @@ export default function InfoBlock(props) {
 
   return (
     <div className="Weather">
-      <div>
-        <div className="d-flex main_block">
-          <div className="col-4">
-            <ul className="list-unstyled">
-              <br />
-              <li className="card-text" />
-              {props.city}
-              <li className="font-italic" />
-
-              <FormattedDate date={new Date()} />
-
-              <li>
-                <strong> {weatherData.temp} </strong>
-                <span className="units">
-                  <button href="#" className="link-button">
-                    {" "}
-                    °C
-                  </button>
-                  |<button className="link-button"> °F</button>
-                </span>
-              </li>
-            </ul>
-          </div>
-          <div className="col-4 d-flex justify-content-center">
-            <img src={weatherData.icon} alt="" width="110px" />
-          </div>
-          <div className="col-4">
-            <ul className="list-unstyled">
-              <br />
-              <li className="font-italic pt-2">
-                Humidity: {weatherData.humidity}%
-              </li>
-              <li className="font-italic pb-2">Wind: {weatherData.wind}m/h</li>
-              <br />
-              <li />
-            </ul>
-          </div>
+      <div className="d-flex main_block">
+        <div className="col-4">
+          <ul className="list-unstyled pt-3 m-0">
+            <li className="card-text" /> <strong> {props.city}</strong>
+            <FormattedDate className="fst-italic" date={new Date()} />
+            <li>
+              <span className="weatherIndex"> {weatherData.temp} </span>
+              <span className="units">
+                <button href="#" className="link-button">
+                  {" "}
+                  °C
+                </button>
+                |<button className="link-button"> °F</button>
+              </span>
+            </li>
+          </ul>
+        </div>
+        <div className="col-4 d-flex justify-content-center">
+          <img src={weatherData.icon} alt="" width="130px" height="130px" />
+        </div>
+        <div className="col-4 pt-5">
+          <ul className="list-unstyled">
+            <li> </li>
+            <li className="font-italic pt-2">
+              Humidity: {weatherData.humidity}%
+            </li>
+            <li className="font-italic pb-2">Wind: {weatherData.wind}m/h</li>
+            <li />
+          </ul>
         </div>
       </div>
       <p>
