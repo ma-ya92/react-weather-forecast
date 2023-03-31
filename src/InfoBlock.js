@@ -3,6 +3,7 @@ import "./Weather.css";
 import axios from "axios";
 import { useEffect } from "react";
 import FormattedDate from "./FormattedDate";
+import WeatherTemperature from "./WeatherTemperature";
 
 export default function InfoBlock(props) {
   const [weatherData, setWeatherData] = useState({});
@@ -35,16 +36,9 @@ export default function InfoBlock(props) {
         <div className="col-4">
           <ul className="list-unstyled pt-3 m-0">
             <li className="card-text" /> <strong> {props.city}</strong>
-            <FormattedDate className="fst-italic" date={new Date()} />
+            <FormattedDate date={new Date()} />
             <li>
-              <span className="weatherIndex"> {weatherData.temp} </span>
-              <span className="units">
-                <button href="#" className="link-button">
-                  {" "}
-                  °C
-                </button>
-                |<button className="link-button"> °F</button>
-              </span>
+              <WeatherTemperature celsius={weatherData.temp} />
             </li>
           </ul>
         </div>
