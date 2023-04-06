@@ -4,6 +4,7 @@ import "./Weather.css";
 import InfoBlock from "./InfoBlock";
 import SearchForm from "./SearchForm";
 import Forecast from "./Forecast";
+import Footer from "./Footer";
 
 export default function Parent() {
   const [city, setCity] = useState("Lviv");
@@ -17,6 +18,7 @@ export default function Parent() {
       <SearchForm onChange={updateCity} />
       <InfoBlock city={city} />
       <Forecast />
+      <Footer />
     </div>
   );
 }

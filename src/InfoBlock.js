@@ -57,16 +57,6 @@ export default function InfoBlock(props) {
           </ul>
         </div>
       </div>
-      <p>
-        <button
-          className="link-button"
-          href="https://github.com/ma-ya92/react-weather-forecast"
-          target="_blank"
-        >
-          Open-source code
-        </button>
-        &nbsp;by Mariia Yaroshenko
-      </p>
     </div>
   );
 }

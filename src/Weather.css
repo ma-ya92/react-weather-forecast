@@ -88,3 +88,9 @@ ul {
 .weatherIndex {
   font-size: 35px;
 }
+
+.footer {
+  max-width: 460px;
+  margin: 0 auto;
+  font-size: 12px;
+}
