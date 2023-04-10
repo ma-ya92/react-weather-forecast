@@ -3,7 +3,7 @@ import "./Weather.css";
 
 import InfoBlock from "./InfoBlock";
 import SearchForm from "./SearchForm";
-import Forecast from "./Forecast";
+// import Forecast from "./Forecast";
 import Footer from "./Footer";
 
 export default function Parent() {
@@ -14,10 +14,9 @@ export default function Parent() {
   }
 
   return (
-    <div class="container">
+    <div className="container">
       <SearchForm onChange={updateCity} />
       <InfoBlock city={city} />
-      <Forecast />
       <Footer />
     </div>
   );

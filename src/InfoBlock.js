@@ -4,15 +4,18 @@ import axios from "axios";
 import { useEffect } from "react";
 import FormattedDate from "./FormattedDate";
 import WeatherTemperature from "./WeatherTemperature";
+import Forecast from "./Forecast";
 
 export default function InfoBlock(props) {
   const [weatherData, setWeatherData] = useState({});
 
   function showTemperature(response) {
-    console.log(response.data.main.temp);
+    //console.log(response.data.coord);
     // Cheсking the absense of endless cycle of requests sending
 
     setWeatherData({
+      longitude: response.data.coord.lon,
+      latitude: response.data.coord.lat,
       temp: Math.round(response.data.main.temp),
       icon: `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`,
       wind: Math.round(response.data.wind.speed),
@@ -32,8 +35,8 @@ export default function InfoBlock(props) {
   }, [props.city, apiUrl]);
 
   return (
-    <div className="Weather">
-      <div className="d-flex main_block">
+    <div className="Weather d-flex justify-content-center">
+      <div className="d-flex main_block row justify-content-center">
         <div className="col-4">
           <ul className="list-unstyled pt-3 m-0">
             <li className="card-text" /> <strong> {props.city}</strong>
@@ -56,6 +59,7 @@ export default function InfoBlock(props) {
             <li />
           </ul>
         </div>
+        <Forecast />
       </div>
     </div>
   );
