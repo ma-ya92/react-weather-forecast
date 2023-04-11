@@ -3,10 +3,14 @@ import React, { useState } from "react";
 
 export default function Forecast(props) {
   let [loaded, setLoaded] = useState(false);
-  let [forecast, setForecast] = useState("");
+  let [forecast, setForecast] = useState(null);
+  let [icon, setIcon] = useState(null);
 
   function handleResponse(response) {
     setForecast(response.data.daily);
+    setIcon(
+      `http://openweathermap.org/img/wn/${forecast[0].weather[0].icon}@2x.png`
+    );
     setLoaded(true);
   }
 
@@ -17,7 +21,10 @@ export default function Forecast(props) {
         <div className="main_block d-flex">
           <div className="col">
             <div> {forecast[0].dt} </div>
-            <div> {forecast[0].weather[0].icon}</div>
+            <div>
+              {" "}
+              <img src={icon} alt="" width="85px" />
+            </div>
             <span> {forecast[0].temp.max}°</span>
             <span> {forecast[0].temp.min} °</span>
           </div>
