@@ -24,7 +24,7 @@ export default function SearchForm({ onChange }) {
           <form role="search" className="d-flex" onSubmit={updateCity}>
             <div className="p-2 m-2">
               <input
-                className="form-control me-2 p-1.5 font-weight-light"
+                className="form-control me-1 p-1"
                 type="search"
                 placeholder="Type a city"
                 aria-label="search"
@@ -34,7 +34,7 @@ export default function SearchForm({ onChange }) {
 
             <div className="p-2 m-2">
               <button
-                className="btn btn-info"
+                className="btn btn-info btn-sm"
                 type="search"
                 style={{ color: "white" }}
               >

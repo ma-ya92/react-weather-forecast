@@ -14,8 +14,8 @@ export default function Forecast(props) {
   if (loaded) {
     console.log(forecast);
     return (
-      <div className="Forecast mt-2 pb-2">
-        <div className="main_block d-flex">
+      <div className="Forecast my-2 pb-2 pt-1">
+        <div className="main_block d-flex p-3">
           {forecast.map(function (dailyForecast, index) {
             if (index < 5) {
               return (

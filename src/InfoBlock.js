@@ -10,13 +10,14 @@ export default function InfoBlock(props) {
   const [weatherData, setWeatherData] = useState({});
 
   function showTemperature(response) {
-    //console.log(response.data.coord);
+    console.log(response.data.weather[0].description);
     // Cheсking the absense of endless cycle of requests sending
 
     setWeatherData({
       longitude: response.data.coord.lon,
       latitude: response.data.coord.lat,
       temp: Math.round(response.data.main.temp),
+      description: response.data.weather[0].description,
       icon: `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`,
       wind: Math.round(response.data.wind.speed),
       date: new Date(response.data.dt * 1000),
@@ -38,8 +39,8 @@ export default function InfoBlock(props) {
     <div className="Weather d-flex justify-content-center">
       <div className="d-flex main_block row justify-content-center">
         <div className="col-4">
-          <ul className="list-unstyled pt-3 m-0">
-            <li className="card-text" /> <strong> {props.city}</strong>
+          <ul className="list-unstyled pt-2 m-0">
+            <li className="cityName"> {props.city} </li>
             <FormattedDate date={new Date()} />
             <li>
               <WeatherTemperature celsius={weatherData.temp} />
@@ -50,13 +51,12 @@ export default function InfoBlock(props) {
           <img src={weatherData.icon} alt="" width="130px" height="130px" />
         </div>
         <div className="col-4 pt-5">
-          <ul className="list-unstyled">
+          <ul className="list-unstyled ps-0">
             <li> </li>
-            <li className="font-italic pt-2">
-              Humidity: {weatherData.humidity}%
-            </li>
-            <li className="font-italic pb-2">Wind: {weatherData.wind}m/h</li>
+            <li className="pt-2">Humidity: {weatherData.humidity}%</li>
+            <li className="pb-2">Wind: {weatherData.wind}m/h</li>
             <li />
+            <li className="text-capitalize pt-3"> {weatherData.description}</li>
           </ul>
         </div>
         <Forecast
