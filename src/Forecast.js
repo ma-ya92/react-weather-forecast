@@ -16,11 +16,18 @@ export default function Forecast(props) {
     return (
       <div className="Forecast mt-2 pb-2">
         <div className="main_block d-flex">
-          <WeatherForecastDay data={forecast[0]} />
-          <WeatherForecastDay data={forecast[1]} />
-          <WeatherForecastDay data={forecast[2]} />
-          <WeatherForecastDay data={forecast[3]} />
-          <WeatherForecastDay data={forecast[4]} />
+          {forecast.map(function (dailyForecast, index) {
+            if (index < 5) {
+              return (
+                <div className="col" key={index}>
+                  {" "}
+                  <WeatherForecastDay data={dailyForecast} />{" "}
+                </div>
+              );
+            } else {
+              return null;
+            }
+          })}
         </div>
       </div>
     );
