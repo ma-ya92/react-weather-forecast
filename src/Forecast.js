@@ -5,13 +5,9 @@ import WeatherForecastDay from "./WeatherForecastDay";
 export default function Forecast(props) {
   let [loaded, setLoaded] = useState(false);
   let [forecast, setForecast] = useState(null);
-  let [icon, setIcon] = useState(null);
 
   function handleResponse(response) {
     setForecast(response.data.daily);
-    setIcon(
-      `http://openweathermap.org/img/wn/${forecast[0].weather[0].icon}@2x.png`
-    );
     setLoaded(true);
   }
 
@@ -20,9 +16,11 @@ export default function Forecast(props) {
     return (
       <div className="Forecast mt-2 pb-2">
         <div className="main_block d-flex">
-          <div className="col">
-            <WeatherForecastDay icon={icon} data={forecast[0]} />
-          </div>
+          <WeatherForecastDay data={forecast[0]} />
+          <WeatherForecastDay data={forecast[1]} />
+          <WeatherForecastDay data={forecast[2]} />
+          <WeatherForecastDay data={forecast[3]} />
+          <WeatherForecastDay data={forecast[4]} />
         </div>
       </div>
     );
