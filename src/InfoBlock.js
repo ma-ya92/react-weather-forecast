@@ -59,7 +59,10 @@ export default function InfoBlock(props) {
             <li />
           </ul>
         </div>
-        <Forecast />
+        <Forecast
+          longitude={weatherData.longitude}
+          latitude={weatherData.latitude}
+        />
       </div>
     </div>
   );
