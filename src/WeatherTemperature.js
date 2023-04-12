@@ -19,7 +19,7 @@ export default function WeatherTemperature(props) {
 
   if (unit === "celsius") {
     return (
-      <div сlassName="WeatherTemperature">
+      <div className="WeatherTemperature">
         <span className="weatherIndex"> {props.celsius} </span>
         <span className="units">
           <button href="#" className="link-button">

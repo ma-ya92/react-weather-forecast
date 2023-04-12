@@ -18,7 +18,7 @@ export default function Forecast(props) {
   // If the coordainates change [put the name of a variable that will change], run the code above
 
   if (loaded) {
-    console.log(forecast);
+    //console.log(forecast);
     return (
       <div className="Forecast my-2 pb-2 pt-1">
         <div className="main_block d-flex p-3">
