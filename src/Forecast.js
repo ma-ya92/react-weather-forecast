@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import WeatherForecastDay from "./WeatherForecastDay";
 
 export default function Forecast(props) {
@@ -10,6 +10,12 @@ export default function Forecast(props) {
     setForecast(response.data.daily);
     setLoaded(true);
   }
+
+  useEffect(() => {
+    setLoaded(false);
+    // Set loaded (false)
+  }, [props.latitude, props.longitude]);
+  // If the coordainates change [put the name of a variable that will change], run the code above
 
   if (loaded) {
     console.log(forecast);
