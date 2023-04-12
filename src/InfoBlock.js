@@ -10,7 +10,7 @@ export default function InfoBlock(props) {
   const [weatherData, setWeatherData] = useState({});
 
   function showTemperature(response) {
-    console.log(response.data.weather[0].description);
+    // console.log(response.data.city);
     // Cheсking the absense of endless cycle of requests sending
 
     setWeatherData({
@@ -39,7 +39,7 @@ export default function InfoBlock(props) {
     <div className="Weather d-flex justify-content-center">
       <div className="d-flex main_block row justify-content-center">
         <div className="col-4">
-          <ul className="list-unstyled pt-2 m-0">
+          <ul className="list-unstyled pt-2">
             <li className="cityName"> {props.city} </li>
             <FormattedDate date={new Date()} />
             <li>
@@ -51,7 +51,7 @@ export default function InfoBlock(props) {
           <img src={weatherData.icon} alt="" width="130px" height="130px" />
         </div>
         <div className="col-4 pt-5">
-          <ul className="list-unstyled ps-0">
+          <ul className="list-unstyled">
             <li> </li>
             <li className="pt-2">Humidity: {weatherData.humidity}%</li>
             <li className="pb-2">Wind: {weatherData.wind}m/h</li>

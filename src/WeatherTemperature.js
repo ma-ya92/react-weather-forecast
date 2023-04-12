@@ -37,7 +37,7 @@ export default function WeatherTemperature(props) {
   } else
     return (
       <div сlassName="WeatherTemperature">
-        <span className="weatherIndex"> {fahrenheit()} </span>
+        <span className="weatherIndex ps-2"> {fahrenheit()} </span>
         <span className="units">
           <button href="#" className="link-button" onClick={showCelsius}>
             {" "}

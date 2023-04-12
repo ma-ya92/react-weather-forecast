@@ -32,8 +32,8 @@ export default function WeatherForecastDay(props) {
         {" "}
         <img src={Icon()} alt="" width="80px" />
       </div>
-      <span> {tempMax()}</span>
-      <span>{tempMin()}</span>
+      <span className="tempMax fw-bolder"> {tempMax()}</span>
+      <span className="tempMin opacity-50"> {tempMin()}</span>
     </div>
   );
 }
